@@ -122,9 +122,9 @@ ALTER TABLE `my_node`
 Ce certificat permet d'utiliser mqtts (mqtt over SSL) avec "The Things Network"
  
   * Télécharger le certificat "The Things Network" : [https://console.thethingsnetwork.org/mqtt-ca.pem](https://console.thethingsnetwork.org/mqtt-ca.pem)  
-  * Copier le certificat sur la machine qui héberge node-red, dans le home de l'utilisateur qui lance le service node-red (nodered dans l'exemple ci-dessous)
+  * Copier le certificat sur la machine qui héberge node-red, dans le home de l'utilisateur qui lance le service node-red (jonas dans l'exemple ci-dessous)
   
-    /home/nodered/mqtt-ca.pem
+    /home/jonas/mqtt-ca.pem
 
 ### Modules utilisés dans node-red
 
