@@ -14,8 +14,8 @@ Ci-dessous le circuit emprunté par les données depuis le capteur vers la base 
   * Node-red est connecté au serveur d'application "The Things Network" avec le prorocole mqtts et récupère le message
   * Node-red insère les données du message dans la base de données MySQL
 
-\*node (noeud) = capteur + arduino + puce LoRa
-**Gateway (passerelle) = Réception des données LoRa émises par le node, transfert des données du nodes vers le serveur d'application "The Things Network"
+\*node (noeud) = capteur + arduino + puce LoRa  
+**Gateway (passerelle) = Réception des données LoRa émises par le node, transfert des données du node vers le serveur d'application "The Things Network"
 
 ## Prérequis
 
