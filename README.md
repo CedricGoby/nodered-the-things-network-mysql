@@ -129,9 +129,13 @@ Ce certificat permet d'utiliser mqtts (mqtt over SSL) avec "The Things Network"
 ### Modules utilisés dans node-red
 
   * **mqtt** node : Récupère les données de l'objet connecté depuis "The Things Network"
-  * **json** node : Convertit les données au format JSON 
+    Dans l'onglet "security" :
+    * Username = AppID
+    * Password = AppKey
+  * **json** node : Convertit les données au format JSON
   * **function** node : Construit la requête SQL pour insérer les données dans la base de données
   * **mysql** node : Gère la connexion à la base de données et l'execution de la requête SQL
+    * Utilise les paramètres de connexion à la base de données MySQL (hôte, port, base, utilisateur, mot de passe)
   * **debug** node : Affiche la requête SQL transmise et le résultat de l'execution
 
 ### Ouverture de port
