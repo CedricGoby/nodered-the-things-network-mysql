@@ -10,7 +10,7 @@ Ci-dessous le circuit emprunté par les données depuis le capteur vers la base 
 
   * Le node* envoit un message (la donnée du capteur et des métas-données) sur le réseau LoRa
   * La gateway** LoRa réceptionne le message
-  * La gateway transmet le message vers le serveur d'application "The Things Network"
+  * La gateway transmet par Internet le message vers le serveur d'application "The Things Network"
   * Node-red est connecté au serveur d'application "The Things Network" avec le prorocole mqtts et récupère le message
   * Node-red insère les données du message dans la base de données MySQL
 
@@ -45,13 +45,11 @@ Node-red doit être installé : [https://nodered.org/docs/getting-started/instal
 
 ```
 function Decoder(bytes, port) {
-  // Decode an uplink message from a buffer
-  // (array) of bytes to an object of fields.
-  var decoded = {};
-
-  // if (port === 1) decoded.led = bytes[0];
-
-  return decoded;
+var decoded = {};
+var result = "";
+return {
+payload: String.fromCharCode.apply(null, bytes)
+};
 }
 ```
 
@@ -129,9 +127,10 @@ Ce certificat permet d'utiliser mqtts (mqtt over SSL) avec "The Things Network"
 ### Modules utilisés dans node-red
 
   * **mqtt** node : Récupère les données de l'objet connecté depuis "The Things Network"
-    Dans l'onglet "security" :
-    * Username = AppID
-    * Password = AppKey
+    * Topic : my_ttn_application/devices/my_node/up
+      * Dans l'onglet "security" du "mqtt-broker" :
+        * Username = Application ID
+        * Password = Access Key (commence par "ttn-account...")
   * **json** node : Convertit les données au format JSON
   * **function** node : Construit la requête SQL pour insérer les données dans la base de données
   * **mysql** node : Gère la connexion à la base de données et l'execution de la requête SQL
